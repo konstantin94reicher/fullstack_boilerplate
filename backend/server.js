@@ -1,13 +1,18 @@
 const express = require("express");
 const db = require("./database");
 const app = express();
+app.use(
+  cors({
+    origin: process.env.FRONTEND_URL || "http://localhost:3000",
+  })
+);
 
 app.use(express.json());
 app.use(express.static("../frontend"));
-const authRoutes = require('./auth');
-const authenticate = require('./middleware');
+const authRoutes = require("./auth");
+const authenticate = require("./middleware");
 
-app.use('/api/auth', authRoutes);
+app.use("/api/auth", authRoutes);
 
 // GET alle Produkte
 app.get("/api/products", async (req, res) => {
@@ -77,6 +82,8 @@ app.get("/", (req, res) => {
   res.sendFile("index.html", { root: "../frontend" });
 });
 
-app.listen(3000, () => {
-  console.log("Server läuft auf http://localhost:3000");
+const PORT = process.env.PORT || 3000;
+
+app.listen(PORT, () => {
+  console.log(`Server läuft auf Port ${PORT}`);
 });
