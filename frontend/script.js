@@ -1,6 +1,7 @@
 // Beim Laden der Seite: alle Produkte abrufen
 async function loadProducts() {
-  const response = await fetch("http://localhost:3000/api/products");
+  const API_URL = "https://fullstacktest-production-e929.up.railway.app;"
+  const response = await fetch(`${API_URL}/api/products`);
   const products = await response.json();
 
   const list = document.getElementById("product-list");
@@ -19,7 +20,7 @@ document.getElementById("product-form").addEventListener("submit", async (e) => 
   const name = document.getElementById("name").value;
   const price = document.getElementById("price").value;
 
-  await fetch("http://localhost:3000/api/products", {
+  await fetch(`${API_URL}/api/products`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ name, price: parseFloat(price) }),
