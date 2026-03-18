@@ -1,5 +1,3 @@
-const API_URL = "https://fullstacktest-production-e929.up.railway.app";
-
 document.getElementById("register-form").addEventListener("submit", async (e) => {
   e.preventDefault();
 
@@ -8,7 +6,7 @@ document.getElementById("register-form").addEventListener("submit", async (e) =>
   const password = document.getElementById("password").value;
 
   try {
-    const response = await fetch(`${API_URL}/api/auth/register`, {
+    const response = await fetch(`${CONFIG.API_URL}/api/auth/register`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ name, email, password }),

@@ -1,5 +1,3 @@
-const API_URL = "https://fullstacktest-production-e929.up.railway.app";
-
 // Falls bereits eingeloggt, direkt weiterleiten
 if (localStorage.getItem("token")) {
   window.location.href = "./index.html";
@@ -12,7 +10,7 @@ document.getElementById("login-form").addEventListener("submit", async (e) => {
   const password = document.getElementById("password").value;
 
   try {
-    const response = await fetch(`${API_URL}/api/auth/login`, {
+    const response = await fetch(`${CONFIG.API_URL}/api/auth/login`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ email, password }),

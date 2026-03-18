@@ -1,4 +1,4 @@
-const API_URL = "https://fullstacktest-production-e929.up.railway.app";
+const API_URL = CONFIG.API_URL;
 
 // Prüfen ob eingeloggt — wenn nicht, zu Login weiterleiten
 const token = localStorage.getItem("token");
