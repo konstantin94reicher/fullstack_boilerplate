@@ -1,6 +1,7 @@
+const API_URL = "https://fullstacktest-production-e929.up.railway.app";
+
 // Beim Laden der Seite: alle Produkte abrufen
 async function loadProducts() {
-  const API_URL = "https://fullstacktest-production-e929.up.railway.app;"
   const response = await fetch(`${API_URL}/api/products`);
   const products = await response.json();
 

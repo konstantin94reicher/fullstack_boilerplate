@@ -1,5 +1,9 @@
 const express = require("express");
+const cors = require("cors");
 const db = require("./database");
+const authRoutes = require("./auth");
+const authenticate = require("./middleware");
+
 const app = express();
 app.use(
   cors({
@@ -9,8 +13,6 @@ app.use(
 
 app.use(express.json());
 app.use(express.static("../frontend"));
-const authRoutes = require("./auth");
-const authenticate = require("./middleware");
 
 app.use("/api/auth", authRoutes);
 
