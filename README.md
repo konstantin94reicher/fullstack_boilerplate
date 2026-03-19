@@ -1,12 +1,19 @@
-Grundsätzliche Vorgehensweise zur Projektinitialisierung:
+## Setup
 
-1. Projekt-Ordner anlegen (frontend/ und backend/)
-2. Frontend skizzieren, API-Routen planen
-3. npm init, Express installieren
-4. Datenbankstruktur planen und PostgreSQL einrichten
-5. server.js mit Routes aufbauen
-6. Frontend mit Backend verknüpfen via fetch()
-7. Authentifizierung mit auth.js und middleware.js
-8. Sensible Daten in .env auslagern, .env.example erstellen
-9. .gitignore einrichten (node_modules, .env, shop.db)
-10. Git initialisieren, README schreiben, auf GitHub pushen
+1. Repository klonen
+   git clone https://github.com/deinname/fullstack-boilerplate mein-neues-projekt
+   cd mein-neues-projekt
+   git remote remove origin
+   git remote add origin https://github.com/deinname/mein-neues-projekt
+2. `cd backend && npm install`
+3. `.env.example` zu `.env` kopieren und Werte eintragen
+4. PostgreSQL Datenbank erstellen
+5. `npm run dev` starten
+
+6. `cd frontend && npm install`
+7. `npm run dev` starten
+
+## Deployment
+
+1. Railway: Backend deployen, PostgreSQL hinzufügen, Variables setzen
+2. Netlify: Base directory = frontend, Build command = npm run build, Publish directory = frontend/dist
